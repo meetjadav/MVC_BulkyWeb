@@ -5,15 +5,22 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "postcss wwwroot/css/site.css -o wwwroot/css/tailwind.css"
+    "build:css": "postcss wwwroot/css/site.css -o wwwroot/css/tailwind.css",
+    "watch:css": "postcss wwwroot/css/site.css -o wwwroot/css/tailwind.css --watch",
+    "start:dev": "concurrently \"npm run watch:css\" \"dotnet run\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "concurrently": "^6.0.0",
     "postcss": "^8.4.41",
+    "prettier": "^3.3.3",
+    "prettier-plugin-csharp": "^0.6.0-development",
     "tailwindcss": "^3.4.10"
+  },
+  "dependencies": {
+    "bulkyweb": "file:"
   }
-  
 }
