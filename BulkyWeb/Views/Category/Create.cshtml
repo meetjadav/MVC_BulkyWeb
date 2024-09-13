@@ -1,0 +1,39 @@
+﻿@model Category
+<div class="m-5 flex flex-col items-center">
+    <div class="m-3 p-3 bg-gradient-to-r from-blue-500 to-slate-950 shadow-lg rounded-lg">
+        <h1 class="text-center text-4xl font-extrabold text-white drop-shadow-lg tracking-wider">
+            Create Category
+        </h1>
+    </div>
+
+    <form method="post"
+          class="flex flex-col gap-6 bg-blue-800 p-5 items-center rounded-md mt-7 border shadow-md border-gray-400 shadow-gray-400">
+        <div class="flex flex-col gap-2.5">
+            <label for="Name" class="text-start font-bold text-white text-2xl">Enter Category Name</label>
+            <input placeholder="Enter" class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Name">
+            <span asp-validation-for="Name" class="text-red-500 font-bold"></span>
+        </div>
+        <div class="flex flex-col gap-2.5">
+            <label for="DisplayOrder" class="text-start font-bold text-white text-2xl">Enter Display Order</label>
+            <input placeholder="0"
+                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="DisplayOrder">
+            <span asp-validation-for="DisplayOrder" class="text-red-500 font-bold"></span>
+        </div>
+
+        <div class="flex gap-11">
+            <button type="submit"
+                    class="bg-white text-center py-1 px-4 rounded-xl font-semibold text-xl text-black">
+                Create
+            </button>
+            <a class="text-center py-1 px-4 rounded-xl font-semibold text-xl text-white hover:bg-blue-950 hover:border-blue-950 bg-blue-500" asp-action="Index">
+                Back
+            </a>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial.cshtml"/>
+    }
+}

@@ -1,7 +1,7 @@
 ﻿@model List<Category>
 
 <div class="m-5 flex flex-col items-center">
-    <div class="m-3 w-72 p-3 bg-gradient-to-r from-blue-500 to-slate-950 shadow-lg rounded-lg">
+    <div class="m-3 p-3 bg-gradient-to-r from-blue-500 to-slate-950 shadow-lg rounded-lg">
         <h1 class="text-center text-4xl font-extrabold text-white drop-shadow-lg tracking-wider">
             Category List
         </h1>
@@ -9,11 +9,11 @@
     <div class="m-1.5 overflow-x-auto flex flex-col items-center">
         <div class="p-1.5 min-w-full inline-block align-middle">
             <div class="text-right m-5">
-                <a asp-controller="Catagory" asp-action="Create"
-                   class="bg-blue-600 px-2 py-1 text-white text-xl rounded-md shadow-md border shadow-gray-400 border-gray-400 hover:bg-blue-900">
+                <a asp-controller="Category" asp-action="Create"
+                   class="bg-blue-600 px-2 py-1 text-white text-xl rounded-md shadow-md border shadow-gray-400 border-blue-600 hover:bg-blue-900">
                     Create
                     New
-                    Catagory
+                    Category
                 </a>
             </div>
             <div class="border rounded-lg shadow overflow-hidden border-gray-500 shadow-gray-500">
@@ -43,14 +43,14 @@
                                     @item.DisplayOrder
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-end">
-                                    <button type="button" class="inline-flex items-center gap-x-2 text-3xl font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none hover:underline">
+                                    <a class="inline-flex items-center gap-x-2 text-3xl font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none hover:underline" asp-action="Edit" asp-route-id="@item.Id">
                                         Edit
-                                    </button>
+                                    </a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-end text-3xl">
-                                    <button type="button" class="inline-flex items-center gap-x-2 font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none hover:underline">
+                                    <a class="inline-flex items-center gap-x-2 font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none hover:underline" asp-action="Delete" asp-route-id="@item.Id">
                                         Delete
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         }
