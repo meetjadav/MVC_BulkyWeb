@@ -1,0 +1,74 @@
+﻿@model List<Product>
+
+<div class="m-5 flex flex-col items-center">
+    <div class="m-3 p-3 bg-gradient-to-r from-blue-500 to-slate-950 shadow-lg rounded-lg">
+        <h1 class="text-center text-4xl font-extrabold text-white drop-shadow-lg tracking-wider">
+            Product List
+        </h1>
+    </div>
+    <div class="m-1.5 overflow-x-auto flex flex-col items-center">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+            <div class="text-right m-5">
+                <a asp-controller="Product" asp-action="Create"
+                   class="bg-blue-600 px-2 py-1 text-white text-xl rounded-md shadow-md border shadow-gray-400 border-blue-600 hover:bg-blue-900">
+                    Create
+                    New
+                    Product
+                </a>
+            </div>
+            <div class="border rounded-lg shadow overflow-hidden border-gray-500 shadow-gray-500">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-blue-800">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-start text-2xl text-white">
+                                Title
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-center text-white text-2xl">
+                                Author
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-center text-white text-2xl">
+                                ISBN
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-center text-white text-2xl">
+                                Price
+                            </th>
+                            <th scope="col" colspan="2"class="px-6 py-3 text-center text-white text-2xl">
+                                Action
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-start px-6 py-4 whitespace-nowrap text-3xl text-gray-950">
+                                    @item.Title
+                                </td>
+                                <td class="text-start px-6 py-4 whitespace-nowrap text-3xl text-gray-950">
+                                    @item.Author
+                                </td>
+                                <td class="text-center px-6 py-4 whitespace-nowrap text-3xl text-gray-950">
+                                    @item.ISBN
+                                </td>
+                                <td class="text-center px-6 py-4 whitespace-nowrap text-3xl text-gray-950">
+                                    @item.Price
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-end">
+                                    <a class="inline-flex items-center gap-x-2 text-3xl font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none hover:underline" asp-action="Edit" asp-route-id="@item.Id">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-end text-3xl">
+                                    <a class="inline-flex items-center gap-x-2 font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none hover:underline" asp-action="Delete" asp-route-id="@item.Id">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

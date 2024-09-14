@@ -1,73 +1,69 @@
 ﻿<!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BulkyWeb</title>
     <link rel="stylesheet" href="~/css/tailwind.css" />
-    <link
-      rel="stylesheet"
-      href="~/css/site.css"
-      asp-append-version="true"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+          rel="stylesheet" />
+</head>
 
-  <body class="bg-gray-100">
+<body class="bg-gray-100">
     <header>
-      <nav class="border-b border-gray-200 bg-slate-950 p-2">
-        <div class="container flex flex-col">
-          <ul class="container m-2 flex space-x-5">
-            <li>
-              <a
-                class="text-center text-lg font-semibold text-gray-300"
-                asp-area=""
-                asp-controller="Home"
-                asp-action="Index"
-                >Kitab Ke Nashe!</a>
-            </li>
-            <li>
-              <a
-                class="rounded p-1 text-white hover:bg-blue-800"
-                asp-area=""
-                asp-controller="Home"
-                asp-action="Index"
-                >Home</a>
-              
-            </li>
-            <li>
-              <a
-                class="rounded p-1 text-white hover:bg-blue-800"
-                asp-area=""
-                asp-controller="Category"
-                asp-action="Index"
-                >Category</a>
-              
-            </li>
-            <li>
-              <a
-                class="rounded p-1 text-white hover:bg-blue-800"
-                asp-area=""
-                asp-controller="Home"
-                asp-action="Privacy"
-                >Privacy</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+        <nav class="border-b border-gray-200 bg-slate-950 p-2">
+            <div class="container flex flex-col">
+                <ul class="container m-2 flex space-x-5">
+                    <li>
+                        <a class="text-center text-lg font-semibold text-gray-300"
+                           asp-area=""
+                           asp-controller="Home"
+                           asp-action="Index">Kitab Ke Nashe!</a>
+                    </li>
+                    <li>
+                        <a class="rounded p-1 text-white hover:bg-blue-800"
+                           asp-area=""
+                           asp-controller="Home"
+                           asp-action="Index">Home</a>
+
+                    </li>
+                    <li>
+                        <a class="rounded p-1 text-white hover:bg-blue-800"
+                           asp-area=""
+                           asp-controller="Category"
+                           asp-action="Index">Category</a>
+
+                    </li>
+
+                    <li>
+                        <a class="rounded p-1 text-white hover:bg-blue-800"
+                           asp-area=""
+                           asp-controller="Product"
+                           asp-action="Index">Product</a>
+
+                    </li>
+                    <li>
+                        <a class="rounded p-1 text-white hover:bg-blue-800"
+                           asp-area=""
+                           asp-controller="Home"
+                           asp-action="Privacy">Privacy</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <div class="container mx-auto px-4">
-      <main role="main" class="pb-3">@RenderBody()</main>
+        <main role="main" class="pb-3">@RenderBody()</main>
     </div>
 
     <footer class="border-t border-gray-200 bg-white py-4 text-gray-600">
-      <div class="container mx-auto text-center">&copy; 2024 - BulkyWeb</div>
+        <div class="container mx-auto text-center">&copy; 2024 - BulkyWeb</div>
     </footer>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-  </body>
+</body>
 </html>

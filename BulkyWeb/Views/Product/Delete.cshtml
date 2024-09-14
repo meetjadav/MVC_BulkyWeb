@@ -1,0 +1,53 @@
+﻿@model Product
+<div class="m-5 flex flex-col items-center">
+    <div class="m-3 p-3 bg-gradient-to-r from-blue-500 to-slate-950 shadow-lg rounded-lg">
+        <h1 class="text-center text-4xl font-extrabold text-white drop-shadow-lg tracking-wider">
+            Delete Product
+        </h1>
+    </div>
+
+    <form method="post"
+          class="flex flex-col gap-6 bg-blue-800 p-5 items-center rounded-md mt-7 border shadow-md border-gray-400 shadow-gray-400">
+        <div class="flex flex-col gap-2.5">
+            <label for="Title" class="text-start font-bold text-white text-2xl">Product Title</label>
+            <input placeholder="Enter" class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Title" disabled>
+            <span asp-validation-for="Title" class="text-red-500 font-bold"></span>
+
+        </div>
+        <div class="flex flex-col gap-2.5">
+            <label for="Author" class="text-start font-bold text-white text-2xl"> Author</label>
+            <input placeholder="0"
+                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Author" disabled>
+            <span asp-validation-for="Author" class="text-red-500 font-bold"></span>
+        </div>
+        <div class="flex flex-col gap-2.5">
+            <label for="Discription" class="text-start font-bold text-white text-2xl"> Discription</label>
+            <input placeholder="0"
+                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Description" disabled>
+            <span asp-validation-for="Description" class="text-red-500 font-bold"></span>
+        </div>
+        <div class="flex flex-col gap-2.5">
+            <label for="ISBN" class="text-start font-bold text-white text-2xl"> ISBN</label>
+            <input placeholder="0"
+                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="ISBN" disabled>
+            <span asp-validation-for="ISBN" class="text-red-500 font-bold"></span>
+        </div>
+        <div class="flex flex-col gap-2.5">
+            <label for="Price" class="text-start font-bold text-white text-2xl"> Price</label>
+            <input placeholder="0"
+                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Price" disabled>
+            <span asp-validation-for="Price" class="text-red-500 font-bold"></span>
+        </div>
+
+        <div class="flex gap-11 ">
+            <button type="submit"
+                    class="bg-white text-center py-1 px-4 rounded-xl font-semibold text-xl text-black">
+                Delete
+            </button>
+            <a class="text-center py-1 px-4 rounded-xl font-semibold text-xl text-white hover:bg-blue-950 hover:border-blue-950 bg-blue-500" asp-action="Index">
+                Back
+            </a>
+        </div>
+
+    </form>
+</div>
