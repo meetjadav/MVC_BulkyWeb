@@ -1,3 +1,4 @@
+using BulkyWeb.Data;
 using BulkyWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -6,16 +7,15 @@ namespace BulkyWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _db;
+        public HomeController(ApplicationDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
-
         public IActionResult Index()
         {
-            return View();
+            List<Product> Product = _db.Products.ToList();
+            return View(Product);
         }
 
         public IActionResult Privacy()

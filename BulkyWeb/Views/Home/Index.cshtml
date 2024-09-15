@@ -1,11 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<Product>
+<div class="flex flex-col items-center m-6">
+    <h1 class="text-center text-4xl font-extrabold text-white drop-shadow-lg tracking-wider p-3 bg-gradient-to-r from-blue-500 to-slate-950 shadow-lg rounded-lg">
+        Book List
+    </h1>
+</div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>
-        Learn about
-        <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
-    </p>
+<div class="flex flex-wrap items-start gap-6 m-6">
+    @foreach (var item in Model)
+    {
+        <div class="p-2 rounded-sm flex flex-col items-center gap-1 shadow-md shadow-gray-400 border-l-4 border-l-blue-900 border-r-4 border-r-blue-900 bg-gray-200">
+            <img src="@item.ImgURL" class="w-28 h-36 rounded-lg" alt="">
+
+            <span class="font-bold">@item.Title</span>
+            <span class="font-serif">by</span>
+            <span class="font-bold">@item.Author</span>
+
+
+            <span class="font-bold">₹ @item.Price</span>
+            <a asp-action="Index" class="bg-blue-600 text-center py-1 px-4 rounded-sm font-semibold text-sm text-white">
+                Buy Now
+            </a>
+        </div>
+    }
+
 </div>
