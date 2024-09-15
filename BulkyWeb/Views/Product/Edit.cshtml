@@ -1,4 +1,4 @@
-﻿@model Product
+﻿@model ProductCategoryViewModel
 <div class="m-5 flex flex-col items-center">
     <div class="m-3 p-3 bg-gradient-to-r from-blue-500 to-slate-950 shadow-lg rounded-lg">
         <h1 class="text-center text-4xl font-extrabold text-white drop-shadow-lg tracking-wider">
@@ -7,36 +7,51 @@
     </div>
 
     <form method="post"
-          class="flex flex-col gap-6 bg-blue-800 p-5 items-center rounded-md mt-7 border shadow-md border-gray-400 shadow-gray-400">
+          class="flex flex-col gap-6 bg-blue-800 p-5 rounded-md mt-7 border shadow-md border-gray-400 shadow-gray-400" style="width:70vw">
+          <input asp-for="@Model.Product.Id" hidden/>
         <div class="flex flex-col gap-2.5">
             <label for="Title" class="text-start font-bold text-white text-2xl">Product Title</label>
-            <input placeholder="Enter" class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Title">
-            <span asp-validation-for="Title" class="text-red-500 font-bold"></span>
+            <input placeholder="Enter" class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="@Model.Product.Title">
+            <span asp-validation-for="@Model.Product.Title" class="text-red-500 font-bold"></span>
 
         </div>
         <div class="flex flex-col gap-2.5">
             <label for="Author" class="text-start font-bold text-white text-2xl"> Author</label>
             <input placeholder="0"
-                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Author">
-            <span asp-validation-for="Author" class="text-red-500 font-bold"></span>
+                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="@Model.Product.Author">
+            <span asp-validation-for="@Model.Product.Author" class="text-red-500 font-bold"></span>
         </div>
         <div class="flex flex-col gap-2.5">
-            <label for="Discription" class="text-start font-bold text-white text-2xl"> Discription</label>
-            <input placeholder="0"
-                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Description">
-            <span asp-validation-for="Description" class="text-red-500 font-bold"></span>
+            <label for="Description" class="text-start font-bold text-white text-2xl">Description</label>
+            <textarea placeholder="Enter description" class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="@Model.Product.Description" rows="5"></textarea>
+            <span asp-validation-for="@Model.Product.Description" class="text-red-500 font-bold"></span>
         </div>
         <div class="flex flex-col gap-2.5">
             <label for="ISBN" class="text-start font-bold text-white text-2xl"> ISBN</label>
             <input placeholder="0"
-                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="ISBN">
-            <span asp-validation-for="ISBN" class="text-red-500 font-bold"></span>
+                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="@Model.Product.ISBN">
+            <span asp-validation-for="@Model.Product.ISBN" class="text-red-500 font-bold"></span>
         </div>
         <div class="flex flex-col gap-2.5">
             <label for="Price" class="text-start font-bold text-white text-2xl"> Price</label>
             <input placeholder="0"
-                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Price">
-            <span asp-validation-for="Price" class="text-red-500 font-bold"></span>
+                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="@Model.Product.Price">
+            <span asp-validation-for="@Model.Product.Price" class="text-red-500 font-bold"></span>
+        </div>
+        <div class="flex flex-col gap-2.5">
+            <label for="ImgURL" class="text-start font-bold text-white text-2xl"> Image-URL</label>
+            <input placeholder="0"
+                   class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="@Model.Product.ImgURL">
+            <span asp-validation-for="@Model.Product.ImgURL" class="text-red-500 font-bold"></span>
+        </div>
+        <div class="flex flex-col gap-2.5 items-start">
+            <label for="CategoryId" class="text-start font-bold text-white text-2xl">
+                Select Category
+            </label>
+            <select class="text-start p-2 text-3xl rounded-lg text-gray-950" asp-for="Product.CategoryId" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))">
+                <option value="">-- Select Category --</option>
+            </select>
+            <span asp-validation-for="Product.CategoryId" class="text-red-500 font-bold"></span>
         </div>
 
         <div class="flex gap-11 ">
@@ -44,8 +59,7 @@
                     class="bg-white text-center py-1 px-4 rounded-xl font-semibold text-xl text-black">
                 Edit
             </button>
-            <a
-                    class="text-center py-1 px-4 rounded-xl font-semibold text-xl text-white hover:bg-blue-950 hover:border-blue-950 bg-blue-500" asp-action="Index">
+            <a class="text-center py-1 px-4 rounded-xl font-semibold text-xl text-white hover:bg-blue-950 hover:border-blue-950 bg-blue-500" asp-action="Index">
                 Back
             </a>
         </div>
