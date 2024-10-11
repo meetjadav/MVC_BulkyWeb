@@ -16,7 +16,7 @@
     <header>
         <nav class="border-b border-gray-200 bg-slate-950 p-2">
             <div class="container flex flex-col">
-                <ul class="container m-2 flex space-x-5">
+                <ul class="container m-2 flex space-x-5 justify-center items-center">
                     <li>
                         <a class="text-center text-lg font-semibold text-gray-300"
                            asp-area=""
@@ -51,6 +51,10 @@
                            asp-controller="Home"
                            asp-action="Privacy">Privacy</a>
                     </li>
+                    <li>
+                        <partial name="_LoginPartial.cshtml" />
+                    </li>
+                    
                 </ul>
             </div>
         </nav>
